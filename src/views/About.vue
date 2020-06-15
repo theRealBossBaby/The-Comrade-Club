@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="about  purple darken-3 white--text">
     <v-container class="my-5">
-      <h1 class="heading">About Us</h1>
+      <h1 class="heading white--text">About Us</h1>
 
       <v-row>
         <v-flex xs12 sm6 md4 lg3 v-for="comrade in comrades" :key="comrade.phone">
@@ -37,6 +37,7 @@
 
 <script>
 export default {
+  
   components: {},
   computed: {
     comrades() {

@@ -1,9 +1,9 @@
 <template>
   <v-footer dark padless>
-    <v-card flat tile class="indigo lighten-1 white--text text-center">
+    <v-card flat tile class=" purple darken-3 white--text text-center">
       <v-card-text>
-        <v-btn v-for="(icons, i) in socialmedia" :key="i" class="mx-4 white--text" icon>
-          <v-icon size="24px">{{ icons.icon }}</v-icon>
+        <v-btn v-for="(icon,i) in socialmedia" :key="i" class="mx-4 white--text" icon>
+          <v-icon size="24px">{{ icon.icon }}</v-icon>
         </v-btn>
       </v-card-text>
 
@@ -16,10 +16,11 @@
       <v-card-text class="white--text">
         {{ new Date().getFullYear() }} —
         <strong>&copy; TheComradeClub</strong>
-        <p> theRealBossBaby👑 Productions  </p>
+        <p>theRealBossBaby👑 Productions</p>
       </v-card-text>
     </v-card>
-  </v-footer>  
+  </v-footer>
+  
 </template>
 
 <script>

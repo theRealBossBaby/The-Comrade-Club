@@ -1,23 +1,24 @@
 <template>
-  <v-app id="comradeClub" class="grey lighten-4">
+  <v-app id="comradeClub">
     <Navbar />
     <v-content>
       <router-view></router-view>
     </v-content>
-  <Footer />
+    <Footer />
   </v-app>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+// @ is an alias to /src
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
-export default {
+export default {  
   name: "App",
   components:{ 
     Navbar,
     Footer
-     },
+  },
   data () {
     return {
       //
@@ -27,11 +28,10 @@ export default {
 </script>
 
 <style>
-#comradeClub{
-  font-family: Ubuntu;
-  height: 100vh;
+html, 
+body {
+    overflow-x: hidden;
 }
-.routeLink {
-  text-decoration: none;
-}
+
+
 </style>

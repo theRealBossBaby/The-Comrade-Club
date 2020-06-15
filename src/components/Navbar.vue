@@ -1,92 +1,82 @@
 <template>
-  <nav>
+  <nav class="overflow-hidden">
+
+    <!-- Snackbar -->
     <v-snackbar v-model="snackbar" :timeout="5000" top color="success">
       <span>Disclaimer! Site is still under construction</span>
       <v-btn text color="white" @click="snackbar = false">CLOSE</v-btn>
     </v-snackbar>
-    <v-app-bar app dark hide-on-scroll>
-      <v-app-bar-nav-icon class="grey--text hidden-sm-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <template>
-        <router-link to="/" class="routeLink">
-          <v-toolbar-title class="text-uppercase grey-text">
-            <span>The Comrade Club</span>
-          </v-toolbar-title>
-        </router-link>
-      </template>
+
+    <v-app-bar flat dark class="grey darken-3" elevate-on-scroll>      
 
       <v-spacer></v-spacer>
 
-      <div class="hidden-xs-only">
-        <router-link to="/gallery" class="routeLink">
-          <v-btn text>
-            Gallery
-            <v-icon right>mdi-collage</v-icon>
-          </v-btn>
+      <router-link to="/" class="navLinks">
+        <v-toolbar-title>The Comrade Club</v-toolbar-title>
+      </router-link>
+
+      <v-spacer></v-spacer>
+
+      <v-app-bar-nav-icon class="hidden-sm-and-up" @click="drawer = true"></v-app-bar-nav-icon>
+      <section class="hidden-xs-only flex">
+        <router-link to="/showcase" class="navLinks">
+          <v-btn text>ShowCase</v-btn>
         </router-link>
 
-        <router-link to="/about" class="routeLink">
-          <v-btn text>
-            <span>About</span>
-            <v-icon right>mdi-yin-yang</v-icon>
-          </v-btn>
+        <router-link to="/about" class="navLinks">
+          <v-btn text>About</v-btn>
         </router-link>
-      </div>
+      </section>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" absolute temporary app class>
+    <v-navigation-drawer absolute right dark v-model="drawer" class="grey darken-2">
       <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="/img/brand.png"></v-img>
+        </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title uppercase class="title">TheComradeClub</v-list-item-title>
-          <v-divider></v-divider>
-          <v-list-item-subtitle class="center">
-            Welcome to The Comrade Club!💯
-            <br />
-            Empower | Captivate
-          </v-list-item-subtitle>
+          <v-list-item-title>The Comrade Club</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-
-      <br />
+      <v-list-item>
+        <v-row align="center" justify="center">Empower | Captivate</v-row>
+      </v-list-item>
 
       <v-divider></v-divider>
 
-      <br />
-
-      <v-list nav>
-        <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+      <v-list rounded>
+        <v-list-item v-for="(link,i) in links" :key="i" router :to="link.route">
           <v-list-item-icon>
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ link.title }}</v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-content>{{ link.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
   </nav>
 </template>
 
-
-
 <script>
 export default {
   name: "Navbar",
   data() {
     return {
+      snackbar: true,
       drawer: false,
       links: [
         { title: "Homepage", icon: "mdi-home", route: "/" },
-        { title: "Gallery", icon: "mdi-collage", route: "/gallery" },
+        { title: "ShowCase", icon: "mdi-collage", route: "/showcase" },
         { title: "About", icon: "mdi-yin-yang", route: "/about" }
-      ],
-      snackbar: true
+      ]
     };
   }
 };
 </script>
 
 <style scoped>
-
+.navLinks{
+  text-decoration: none;
+  color: inherit;
+}
 </style>

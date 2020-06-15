@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Gallery from '../views/Gallery.vue'
+import ShowCase from '../views/ShowCase.vue'
 import About from '../views/About.vue'
 
 
@@ -14,9 +14,9 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/gallery',
-    name: 'Gallery',
-    component: Gallery,
+    path: '/showcase',
+    name: 'ShowCase',
+    component: ShowCase,
   },
   {
     path: '/about',
